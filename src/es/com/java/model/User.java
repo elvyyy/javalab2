@@ -1,7 +1,7 @@
 package es.com.java.model;
 
 public class User {
-    protected AuthorizationSystem authorizationSystem;
+    private AuthorizationSystem authorizationSystem;
 
     public User(AuthorizationSystem authorizationSystem) {
         this.authorizationSystem = authorizationSystem;
@@ -15,5 +15,13 @@ public class User {
             System.out.println("Ошибка регистрации. Попробуйте еще раз...");
         }
         return user;
+    }
+
+    public AuthorizationSystem getAuthorizationSystem() {
+        return authorizationSystem;
+    }
+
+    public void setAuthorizationSystem(AuthorizationSystem authorizationSystem) {
+        this.authorizationSystem = authorizationSystem;
     }
 }

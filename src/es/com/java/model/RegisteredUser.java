@@ -1,7 +1,7 @@
 package es.com.java.model;
 
 public class RegisteredUser extends User {
-    protected UserInfo userInfo;
+    private UserInfo userInfo;
 
     public RegisteredUser(AuthorizationSystem authorizationSystem, UserInfo userInfo) {
         super(authorizationSystem);
@@ -9,12 +9,20 @@ public class RegisteredUser extends User {
     }
 
     public boolean signIn() {
-        boolean status = authorizationSystem.checkUser(userInfo);
+        boolean status = getAuthorizationSystem().checkUser(userInfo);
         if (status) {
             System.out.println("Welcome, " + userInfo.getName());
         } else {
             System.out.println("Пользователя с такими данными не существует");
         }
         return status;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }
