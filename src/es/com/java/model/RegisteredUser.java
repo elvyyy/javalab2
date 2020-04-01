@@ -1,28 +1,31 @@
 package es.com.java.model;
 
-public class RegisteredUser extends User {
-    private UserInfo userInfo;
+import java.util.Optional;
 
-    public RegisteredUser(AuthorizationSystem authorizationSystem, UserInfo userInfo) {
-        super(authorizationSystem);
-        this.userInfo = userInfo;
+public class RegisteredUser extends TemplateUser {
+    private Optional<String> name;
+
+    public RegisteredUser(String login, String email, String password) {
+        super(login, email, password);
+        name = Optional.empty();
     }
 
-    public boolean signIn() {
-        boolean status = getAuthorizationSystem().checkUser(userInfo);
-        if (status) {
-            System.out.println("Welcome, " + userInfo.getName());
-        } else {
-            System.out.println("Пользователя с такими данными не существует");
+    public RegisteredUser(TemplateUser user) {
+        super(user.getLogin().get(), user.getEmail().get(), user.getPassword());
+        name = Optional.empty();
+    }
+
+    public void changeName(String name) {
+        this.name = Optional.of(name);
+    }
+
+    public Optional<String> getName() {
+        return this.name;
+    }
+
+    public void printInfo() {
+        if (name.isPresent()) {
+            System.out.println("Name: " + name.get());
         }
-        return status;
-    }
-
-    public UserInfo getUserInfo() {
-        return userInfo;
-    }
-
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
     }
 }
