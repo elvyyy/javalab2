@@ -30,7 +30,7 @@ public class Main {
         }
 
         // Выведет на консоль:
-        // "Ошибка авторизации"
+        // "Ошибка авторизации"  (Неправильный email)
         user = authorizationSystem.authorize(new TemplateUser("smth", "smth@mailru", "123456"));
         if (!user.isPresent()) {
             System.out.println("Ошибка авторизации");
