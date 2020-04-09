@@ -1,7 +1,7 @@
 package es.com.java.model;
 
-import es.com.java.model.DAO.DataBase;
-import es.com.java.model.DAO.UserAuthorizationDAO;
+import es.com.java.dao.DataBase;
+import es.com.java.dao.UserAuthorizationDAO;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package es.com.java.model.DAO;
+package es.com.java.dao;
 
 import es.com.java.model.RegisteredUser;
 import es.com.java.model.TemplateUser;
